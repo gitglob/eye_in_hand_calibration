@@ -29,6 +29,5 @@ def main():
         time.sleep(next - time.time())  # it's ok to sleep negative time
         last = next
 
-
 if __name__ == "__main__":
     main()

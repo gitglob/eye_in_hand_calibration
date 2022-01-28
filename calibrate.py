@@ -33,17 +33,8 @@ def main():
     # perform eye_in_hand calibration to calculate cam2gripper transform
     R_c2g, t_c2g = calibrate_hand_eye(R_gripper2base=R_g2b, t_gripper2base=t_g2b, R_target2cam=R_t2c, t_target2cam=t_t2c)
     print("Cam2gripper transformation...")
-    print("\t\tRotation matrix:\n", R_c2g)
-    print("\t\tTranslation vector:\n", t_c2g)
-
-    # # calculate target2base transform to confirm
-    print("\n\nTarget2base transformation (default position):")
-    R_t2c_0,_ = cv2.Rodrigues(np.array(R_t2c[0]))
-    R_g2b_0,_ = cv2.Rodrigues(np.array(R_g2b[0]))
-    R_t2b = R_t2c_0 * R_c2g * R_g2b_0
-    t_t2b = np.array(t_t2c[0]).reshape((3,1)) + np.array(t_c2g).reshape((3,1)) + np.array(t_g2b[0]).reshape((3,1))
-    print("Rotation matrix:\n", R_t2b)
-    print("Translation vector:\n", t_t2b)
+    print("Rotation matrix:\n", R_c2g)
+    print("Translation vector:\n", t_c2g)
 
 if __name__ == "__main__":
     main()
