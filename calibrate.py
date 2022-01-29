@@ -32,19 +32,6 @@ def main():
     corners, ids, frame_markers = post_process(aruco_dict, frame)
     # # Use of camera calibration to estimate 3D translation and rotation of each marker on a scene
     #R_t2c, t_t2c, imaxis = add_local_axis(frame, aruco_dict, corners, mtx, dist, ids)
-    #convert_to_df(R_t2c, t_t2c, ids, imaxis, corners)
-    #print_pixels(corners, ids)
-
-    # The following lines provide an alternative approach that can be used, were we consider each marker coordinate frame as the target frame
-    # for the eye-in hand calibration, therefore we have num_images*num_markers transformation matrices
-    # then, you can just take the average values of the transformation matrices for each marker
-    # img_dict, marker_dict = create_dictionaries(images, mtx, dist, aruco_dict, corners, ids, frame_markers)
-    # R_cam2tool_dict, mean_R_cam2tool, t_cam2tool_dict, mean_t_cam2tool = per_marker(marker_dict, tool_poses_df)
-    # R_cam2tool, t_cam2tool = all_markers(tool_poses_df, marker_dict)
-    # compare_methods(R_cam2tool, t_cam2tool, mean_R_cam2tool, mean_t_cam2tool)
-    #print((mean_R_cam2tool-R_cam2tool)*100/R_cam2tool,(mean_t_cam2tool-t_cam2tool)*100/t_cam2tool)
-    #print(mean_t_cam2tool)
-    #print(t_cam2tool)
 
     # Read pose transforms from "images_transformation_info.txt"
     R_g2b, t_g2b = read_image_transforms()
