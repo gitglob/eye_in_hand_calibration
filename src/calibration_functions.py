@@ -122,6 +122,7 @@ def calibrate_camera(allCorners, allIds, imsize, board):
 def check_calibration_results(images, mtx, dist):
     """
     Check calibration results on an image of the charuco from a robot pose.
+    Basically, just read an image, undistort it, and plot it.
     """
     i=12 # select image id
     plt.figure()
@@ -136,18 +137,6 @@ def check_calibration_results(images, mtx, dist):
     plt.title("Corrected image")
     plt.axis("off")
     plt.show()
-
-def read_undistort_pic():
-    """
-    Read and plot an undistorted pic to see the effects.
-    """
-    frame = cv2.imread(os.getcwd() + "/photos/12_Color.png")
-    #frame = cv2.undistort(src = frame, cameraMatrix = mtx, distCoeffs = dist)
-    plt.figure()
-    plt.imshow(frame, interpolation = "nearest")
-    plt.show()
-
-    return frame
 
 def add_local_axis(frame, aruco_dict, corners, mtx, dist, ids):
     """

@@ -28,10 +28,10 @@ def main():
 
     check_calibration_results(images, mtx, dist)
 
-    frame = read_undistort_pic()
-    corners, ids, frame_markers = post_process(aruco_dict, frame)
+    # frame = read_undistort_pic()
+    # corners, ids, frame_markers = post_process(aruco_dict, frame)
     # # Use of camera calibration to estimate 3D translation and rotation of each marker on a scene
-    #R_t2c, t_t2c, imaxis = add_local_axis(frame, aruco_dict, corners, mtx, dist, ids)
+    # R_t2c, t_t2c, imaxis = add_local_axis(frame, aruco_dict, corners, mtx, dist, ids)
 
     # Read pose transforms from "images_transformation_info.txt"
     R_g2b, t_g2b = read_image_transforms()
